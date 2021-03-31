@@ -20,7 +20,7 @@ jobs:
           https://github.com/errata-ai/proselint/releases/download/v0.3.2/proselint.zip
 
         # Optional
-        config: .vale.ini
+        config: https://raw.githubusercontent.com/errata-ai/vale/master/.vale.ini
         
         with:
         files: __onlyModified  
