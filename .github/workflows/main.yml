@@ -34,3 +34,8 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          
+    - name: Vale Linter
+  # You may pin to the exact commit or the version.
+  # uses: errata-ai/vale-action@75a4db25a0833de205ab750af4b4ed36e24280ec
+  uses: errata-ai/vale-action@v1.3.0
