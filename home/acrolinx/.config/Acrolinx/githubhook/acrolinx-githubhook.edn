@@ -1,1 +1,5 @@
-:gh-token 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
+:gh-token "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"
+:secret "2019"
+:acrolinx-url "https://acrolinxiq.wdf.sap.corp:443" 
+:acrolinx-auth-token "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJJNTE3NjEyIiwiYXVkIjoiYWNyb2xpbngiLCJuYmYiOjE2MTgyMTU4MzQsImlzcyI6ImFjcm9saW54OjhkNjAzYzBhNmM4NDNkMGEiLCJleHAiOjE3NDQ0NDYyMzQsInRva2VuVHlwZSI6ImFwaSIsImlhdCI6MTYxODMwMjIzNCwianRpIjoiaG9yc3RndWh5dmZwaGd0d2V2bXpzN2hreTMifQ.93UGO94-0tsRVXuthBXyhOAftsNPzKcXkUuS02hkUxE"
+:guidance-profile "en-Technical-Texts"
