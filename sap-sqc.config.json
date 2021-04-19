@@ -1,0 +1,30 @@
+{
+  "include": ["**/*.properties"],
+  "exclude": ["**/sonar-project.properties", "**/node_modules/**"],
+  "breakOnFail": false,
+  "exportResult": ["xlsx", "json", "yml", "txt"],
+  "includeChecks": ["duplicated-id","ui-text-length"],
+}
+withCredentials([usernamePassword(
+  credentialsId: 'SQC_Credentials', 
+  usernameVariable: 'SQC_USERNAME', 
+  passwordVariable: 'SQC_PASSWORD')]) {
+
+    dockerExecute(
+      script: this,
+        dockerImage: "docker.wdf.sap.corp:51585/com.sap.gs.lxlab.lpx/lpx-sqc-piper:latest",
+        dockerVolumeBind: [".:/target/"],
+           dockerEnvVars: [
+        SQC_USERNAME:'$SQC_USERNAME',
+        SQC_PASSWORD:'$SQC_PASSWORD',
+        SQC_PROCESS: 'JENKINS']
+    ) {
+      script {  
+        def statusCode = sh script: "node /lpx-sqc-piper/dist/index.js", returnStatus: true
+        archiveArtifacts artifacts: "sqc-*", allowEmptyArchive: true
+        if (statusCode != 0) {
+          error "Pipeline aborted due to SQC failure"
+        }
+      }    
+    }
+}
